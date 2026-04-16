@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiawa.train.business.mapper.customer.DailyTrainTicketCustomerMapper">
+
+  <update id="updateCountBySell">
+    UPDATE daily_train_ticket
+    SET
+    <if test="seatTypeCode == '1'.toString()">
+      ydz = ydz - 1
+    </if>
+    <if test="seatTypeCode == '2'.toString()">
+      edz = edz - 1
+    </if>
+    <if test="seatTypeCode == '3'.toString()">
+      rw = rw - 1
+    </if>
+    <if test="seatTypeCode == '4'.toString()">
+      yw = yw - 1
+    </if>
+    WHERE
+    `date` = #{date}
+    AND train_code = #{trainCode}
+    AND start_index &gt;= #{minStartIndex}
+    AND start_index &lt;= #{maxStartIndex}
+    AND end_index &gt;= #{minEndIndex}
+    AND end_index &lt;= #{maxEndIndex}
+  </update>
+
+  <!-- 批量扣减余票（追加到DailyTrainTicketCustomerMapper.xml） -->
+  <update id="batchUpdateCountBySell" parameterType="java.util.List">
+    <foreach collection="list" item="dto" separator=";">
+      UPDATE daily_train_ticket
+      SET
+      <if test="dto.seatTypeCode == '1'.toString()">
+        ydz = ydz - 1
+      </if>
+      <if test="dto.seatTypeCode == '2'.toString()">
+        edz = edz - 1
+      </if>
+      <if test="dto.seatTypeCode == '3'.toString()">
+        rw = rw - 1
+      </if>
+      <if test="dto.seatTypeCode == '4'.toString()">
+        yw = yw - 1
+      </if>
+      WHERE
+      `date` = #{dto.date}
+      AND train_code = #{dto.trainCode}
+      AND start_index &gt;= #{dto.minStartIndex}  <!-- 所有>转义 -->
+      AND start_index &lt;= #{dto.maxStartIndex}  <!-- 所有<转义 -->
+      AND end_index &gt;= #{dto.minEndIndex}
+      AND end_index &lt;= #{dto.maxEndIndex}
+    </foreach>
+  </update>
+</mapper>

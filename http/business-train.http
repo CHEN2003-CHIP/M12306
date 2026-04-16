@@ -1,0 +1,4 @@
+GET http://localhost:8000/business/admin/train/gen-seat/G1
+Accept: application/json
+
+###
