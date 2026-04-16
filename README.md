@@ -1,5 +1,12 @@
 # M12306
 
+<div align="center">
+  <img src="./assets/train-logo.svg" alt="M12306 火车 Logo" width="140" />
+
+  <h2>高并发抢票 · 微服务拆分 · 简易 AI Agent</h2>
+  <p>一个适合学习 Java 后端进阶能力的 12306 项目</p>
+</div>
+
 > 一个更适合写进简历、拿来拆源码、顺手练高并发设计的 12306 学习项目。
 
 <div align="center">
@@ -10,8 +17,24 @@
 
 </div>
 
+<div align="center">
+
+[![项目定位](https://img.shields.io/badge/项目定位-学习向高并发项目-2563EB?style=for-the-badge)](#项目一句话)
+[![核心亮点](https://img.shields.io/badge/核心亮点-为什么值得看-F97316?style=for-the-badge)](#为什么值得看)
+[![并发设计](https://img.shields.io/badge/并发设计-项目亮点-14B8A6?style=for-the-badge)](#项目亮点)
+
+[![技术栈](https://img.shields.io/badge/快速了解-技术栈-0F766E?style=for-the-badge)](#技术栈)
+[![系统架构](https://img.shields.io/badge/系统结构-架构示意-7C3AED?style=for-the-badge)](#架构示意)
+[![快速启动](https://img.shields.io/badge/上手方式-快速启动-DC2626?style=for-the-badge)](#快速启动)
+
+[![源码阅读](https://img.shields.io/badge/阅读建议-推荐阅读顺序-334155?style=for-the-badge)](#推荐阅读顺序)
+[![后续计划](https://img.shields.io/badge/后续计划-Roadmap-059669?style=for-the-badge)](#roadmap)
+
+</div>
+
 ---
 
+<a id="项目一句话"></a>
 ## 项目一句话
 
 这是一个面向学习与实践的 12306 仿站项目，核心目标不是“做一个功能很多的订票系统”，而是把一套**高并发抢票链路**、**微服务模块拆分**、**性能优化思路**，以及**简易 AI Agent 接入方式**尽量做得清晰、可读、可复用。
@@ -51,6 +74,7 @@
 
 > 本项目仅作为学习向项目，不用于任何生产场景。
 
+<a id="为什么值得看"></a>
 ## 为什么值得看
 
 和普通 CURD 练手项目不太一样，这个仓库更值得看的地方主要在“高并发接口怎么设计”：
@@ -71,6 +95,7 @@
 
 那这个仓库会比较有参考价值。
 
+<a id="项目亮点"></a>
 ## 项目亮点
 
 ### 1. 高并发抢票链路
@@ -130,6 +155,7 @@ M12306
 
 如果你希望在传统 Java 项目里加一点 AI 能力，这个模块会很有展示效果。
 
+<a id="技术栈"></a>
 ## 技术栈
 
 ### 后端
@@ -166,6 +192,7 @@ M12306
 - MongoDB
 - Pinecone / Easy RAG 相关实验依赖
 
+<a id="架构示意"></a>
 ## 架构示意
 
 ```mermaid
@@ -193,6 +220,7 @@ flowchart LR
     A --> MG["MongoDB"]
 ```
 
+<a id="核心模块说明"></a>
 ## 核心模块说明
 
 ### `gateway`
@@ -272,6 +300,7 @@ flowchart LR
 
 - `8005`
 
+<a id="快速启动"></a>
 ## 快速启动
 
 ### 1. 环境准备
@@ -352,6 +381,7 @@ npm install
 npm run admin-dev
 ```
 
+<a id="推荐阅读顺序"></a>
 ## 推荐阅读顺序
 
 如果你第一次看这个项目，建议按下面顺序读源码：
@@ -366,6 +396,7 @@ npm run admin-dev
 8. `business/service/AfterConfirmOrderService` 看事务落库
 9. `AI assistant` 看 Java 项目接入 Agent 的方式
 
+<a id="适合谁参考"></a>
 ## 适合谁参考
 
 - 想做 Java 微服务项目练手的同学
@@ -374,6 +405,7 @@ npm run admin-dev
 - 想做一个“传统业务 + AI agent”组合项目的同学
 - 想丰富简历项目深度，而不是只停留在普通管理系统的同学
 
+<a id="roadmap"></a>
 ## Roadmap
 
 这个项目后续还可以继续增强：
